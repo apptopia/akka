@@ -418,6 +418,7 @@ import scala.util.{ Failure, Success, Try }
       case Success(()) ⇒
         currentSession = session
         corkUser = false
+        outputBunch.enqueue(UserOut, NewSession(currentSession))
       case Failure(ex) ⇒
         fail(ex, closeTransport = true)
     }
